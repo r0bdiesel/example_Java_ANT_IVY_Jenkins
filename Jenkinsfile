@@ -12,7 +12,7 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${env.STAGE_NAME}ing.."
                 //antBuild(ANT_VERSION,"")
-                antTargetWindows(ANT_VERSION, "initIvy resolve main")
+                antTargetWindows(ANT_VERSION, "initIvy resolveIvyDependencies main")
             }
         }
         stage('Test') {
@@ -48,13 +48,13 @@ void antBuild(String antVersion) {
      if (isUnix()) {
         echo "Building UNIX"
         withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            sh '"$ANT_HOME/bin/ant" initIvy resolve main'
+            sh '"$ANT_HOME/bin/ant" initIvy resolveIvyDependencies main'
         }
     }
     else {
         echo "Building Windows"
         withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            bat '"%ANT_HOME%/bin/ant.bat" initIvy resolve main'
+            bat '"%ANT_HOME%/bin/ant.bat" initIvy resolveIvyDependencies main'
         }
     }
 }
