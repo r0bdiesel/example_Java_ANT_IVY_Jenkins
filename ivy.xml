@@ -4,10 +4,10 @@
         <dependency org="org.slf4j" name="slf4j-api" rev="1.7.6" />
         
         <!-- Test dependencies -->
-        <dependency org="junit" name="junit" rev="4.13.2">
+        <dependency org="junit" name="junit" rev="4.12">
             <artifact name="junit" type="jar" />
         </dependency>
-        <dependency org="org.hamcrest" name="hamcrest-core" rev="4.0.0" conf="test"/>
-        <dependency org="org.hamcrest" name="hamcrest-library" rev="4.0.0" conf="test"/>
+        <dependency org="org.hamcrest" name="hamcrest-core" rev="1.3" conf="test"/>
+        <dependency org="org.hamcrest" name="hamcrest-library" rev="1.3" conf="test"/>
     </dependencies>
 </ivy-module>
