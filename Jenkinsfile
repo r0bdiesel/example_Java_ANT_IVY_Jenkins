@@ -39,7 +39,7 @@ void antBuild(String antVersion) {
     else {
         echo "Building Windows"
         withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            bat '"%ANT_HOME%/bin/ant.bat" main'
+            bat '"%ANT_HOME%/bin/ant.bat" ivy resolve main'
         }
     }
 }
