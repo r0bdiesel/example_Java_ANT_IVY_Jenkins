@@ -6,11 +6,14 @@ import static org.junit.Assert.assertEquals;
 
 
 public class HelloWorldTest{
-  
+  	private static final Logger log = LoggerFactory.getLogger(HelloWorldTest.class);
   String message = "Robert";	
    
    @Test
    public void testA() {	 
+     String where = "test";
+		  log.debug("Logged:{}", where);
+      System.out.println(where);
       assertEquals(message, "Robert");     
    }
   
