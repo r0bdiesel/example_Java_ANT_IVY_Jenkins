@@ -1,12 +1,18 @@
 <ivy-module version="2.0">
+    
     <info organisation="org.apache" module="exampleJenkinsProject" />
+    
+    <configurations>
+        <conf name="binaries" />
+    </configurations>
+    
+    
     <dependencies>
         <dependency org="org.slf4j" name="slf4j-api" rev="1.7.6" />
         
         <!-- Test dependencies -->
-        <dependency org="junit" name="junit" rev="4.12">
-            <artifact name="junit" type="jar" />
-        </dependency>
+        <dependency org="junit" name="junit" rev="4.12" conf="binaries->default" />
         <dependency org="hamcrest" name="hamcrest" rev="2.2" />
     </dependencies>
+    
 </ivy-module>
