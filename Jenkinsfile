@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${env.STAGE_NAME}ing.."
-                antBuild()
+                antBuild(antVersion)
             }
         }
         stage('Test') {
@@ -29,7 +29,7 @@ pipeline {
 
 
 
-void antBuild() {
+void antBuild(String antVersion) {
      if (isUnix()) {
         echo "Building UNIX"
         withEnv( ["ANT_HOME=${tool antVersion}"] ) {
