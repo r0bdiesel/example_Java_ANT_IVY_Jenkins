@@ -12,7 +12,6 @@
         
         <!-- Test dependencies -->
         <dependency org="junit" name="junit" rev="4.12" conf="binaries->default" />
-        <dependency org="hamcrest" name="hamcrest" rev="2.2" />
     </dependencies>
     
 </ivy-module>
