@@ -7,6 +7,6 @@
         <dependency org="junit" name="junit" rev="4.12">
             <artifact name="junit" type="jar" />
         </dependency>
-        <dependency org="hamcrest" name="hamcrest" rev="2.2" conf="test"/>
+        <dependency org="hamcrest" name="hamcrest" rev="2.2" />
     </dependencies>
 </ivy-module>
