@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-                VAR_A = credentials('SECRET_ID')
+                VAR_A = "variable_a"
             }
     stages {
         stage('Build') {
