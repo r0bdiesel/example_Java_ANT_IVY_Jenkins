@@ -30,6 +30,7 @@
     </target>
 
     <!-- external libraries classpath, we don't need sources and javadoc -->
+    <classpath location="lib/junit-4.13.2.jar" />
     <path id="classpath">
         <fileset dir="${basedir}/">
             <include name="${lib.dir}/*.jar" />
