@@ -31,12 +31,14 @@ pipeline {
 }
 
 void antTargetUnix(String antVersion, String Targets){
+    echo "${antVersion} ${Targets}"
     withEnv( ["ANT_HOME=${tool antVersion}"] ) {
             sh '"$ANT_HOME/bin/ant" $Targets'
         }
 }
 
 void antTargetWindows(String antVersion, String Targets){
+   echo "${antVersion} ${Targets}"
    withEnv( ["ANT_HOME=${tool antVersion}"] ) {
             bat '"%ANT_HOME%/bin/ant.bat" %Targets%'
         }
