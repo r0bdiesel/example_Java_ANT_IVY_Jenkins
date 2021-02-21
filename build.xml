@@ -14,7 +14,7 @@
 
     <!-- ivy start -->
     <!-- ivy to get dependencies and copy to project lib folder automatically -->
-    <target name="resolve" description="retrieve dependencies with ivy">
+    <target name="resolveIvyDependencies" description="retrieve dependencies with ivy">
         <ivy:retrieve />
     </target>
 
