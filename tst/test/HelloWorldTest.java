@@ -21,7 +21,7 @@ public class HelloWorldTest{
    }
   
    @Test
-   public void testA() {	 
+   public void testB() {	 
       assertEquals(true, true);     
    }
   
