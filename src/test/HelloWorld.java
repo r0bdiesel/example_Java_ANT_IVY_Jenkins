@@ -4,12 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class HelloWorld {
-	private static final Logger logger = LoggerFactory.getLogger(HelloWorld.class);
+	private static final Logger log = LoggerFactory.getLogger(HelloWorld.class);
 	
-	
-    public static void main(String[] args) {
+    	public static void main(String[] args) {
 		String where = "Hello World";
-		logger.debug("[MAIN] Current Date : {}", where);
-        System.out.println(where);
-    }
+		log.debug("Logged:{}", where);
+        	System.out.println(where);
+    	}
 }
