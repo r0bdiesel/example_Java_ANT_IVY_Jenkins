@@ -1,5 +1,5 @@
 <ivy-module version="2.0">
-    
+    <!-- pulls from https://repo1.maven.org/maven2/ -->
     <info organisation="org.apache" module="exampleJenkinsProject" />
     
     <configurations>
