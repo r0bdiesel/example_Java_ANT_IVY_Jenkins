@@ -31,17 +31,10 @@ pipeline {
 
 void antBuild() {
      if (isUnix()) {
-        def uname = sh script: 'uname', returnStdout: true
-        if (uname.startsWith("Darwin")) {
-            return "Macos"
+        withEnv( ["ANT_HOME=${tool antVersion}"] ) {
+            sh '$ANT_HOME/bin/ant target1 target2'
         }
-        // Optionally add 'else if' for other Unix OS  
-        else {
-            withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-                sh '$ANT_HOME/bin/ant target1 target2'
-            } 
-            return "Linux"
-        }
+        return "Unix"
     }
     else {
         withEnv( ["ANT_HOME=${tool antVersion}"] ) {
