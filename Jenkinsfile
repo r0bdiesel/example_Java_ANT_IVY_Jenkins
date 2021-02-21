@@ -11,16 +11,12 @@ pipeline {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${env.STAGE_NAME}ing.."
-                //antBuild(ANT_VERSION,"")
-                //antTargetWindows(ANT_VERSION, "initIvy resolveIvyDependencies main")
                 doAnt(ANT_VERSION, "initIvy resolveIvyDependencies main")
             }
         }
         stage('Test') {
             steps {
                 echo "${env.STAGE_NAME}ing.."
-                //antRun(ANT_VERSION)
-                //antTargetWindows(ANT_VERSION, "run")
                 doAnt(ANT_VERSION, "run")
             }
         }
