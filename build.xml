@@ -6,7 +6,7 @@
 
     <property name="projectName" value="HelloWorld" />
     <property name="src.dir" location="src" />
-    <property name="test.dir" location="src" />
+    <property name="test.dir" location="tst" />
     <property name="build.dir" location="build" />
     <property name="dist.dir" location="dist" />
     <property name="dist.lib.dir" location="dist/lib" />
