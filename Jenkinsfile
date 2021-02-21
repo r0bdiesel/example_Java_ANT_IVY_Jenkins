@@ -1,3 +1,6 @@
+//variable
+def antVersion = 'Ant1.10.9'
+
 pipeline {
     agent any
     environment {
@@ -9,7 +12,7 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${env.STAGE_NAME}ing.."
                 
-                def antVersion = 'Ant1.10.9'
+               
                 withEnv( ["ANT_HOME=${tool antVersion}"] ) {
                     sh '$ANT_HOME/bin/ant main'
                 }
