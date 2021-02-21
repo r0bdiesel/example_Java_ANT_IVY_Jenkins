@@ -40,7 +40,7 @@ void antTargetUnix(String antVersion, String Targets){
 void antTargetWindows(String antVersion, String Targets){
    echo "${antVersion} ${Targets}"
    withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            bat '"%ANT_HOME%/bin/ant.bat" %Targets%'
+            bat '"%ANT_HOME%/bin/ant.bat" ${Targets}'
         }
 }
 
