@@ -18,6 +18,8 @@ pipeline {
             steps {
                 echo "${env.STAGE_NAME}ing.."
                 doAnt(ANT_VERSION, "run")
+                
+                doAnt(ANT_VERSION, "RunTests")
             }
         }
         stage('Deploy') {
