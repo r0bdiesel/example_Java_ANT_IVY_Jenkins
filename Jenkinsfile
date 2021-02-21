@@ -1,5 +1,5 @@
 //variable
-def antVersion = 'Ant1.10.9'
+def ANT_VERSION = 'Ant1.10.9'
 
 pipeline {
     agent any
@@ -11,13 +11,15 @@ pipeline {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${env.STAGE_NAME}ing.."
-                antBuild(antVersion)
+                //antBuild(ANT_VERSION,"")
+                antTargetWindows(ANT_VERSION, "initIvy resolve main")
             }
         }
         stage('Test') {
             steps {
                 echo "${env.STAGE_NAME}ing.."
-                antRun(antVersion)
+                //antRun(ANT_VERSION)
+                antTargetWindows(ANT_VERSION, "run")
             }
         }
         stage('Deploy') {
@@ -30,7 +32,13 @@ pipeline {
 
 void antTargetUnix(String antVersion, String Targets){
     withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            sh '"$ANT_HOME/bin/ant" initIvy resolve main'
+            sh '"$ANT_HOME/bin/ant" $Targets'
+        }
+}
+
+void antTargetWindows(String antVersion, String Targets){
+   withEnv( ["ANT_HOME=${tool antVersion}"] ) {
+            bat '"%ANT_HOME%/bin/ant.bat" %Targets%'
         }
 }
 
