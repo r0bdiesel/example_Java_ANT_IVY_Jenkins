@@ -12,14 +12,16 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${env.STAGE_NAME}ing.."
                 //antBuild(ANT_VERSION,"")
-                antTargetWindows(ANT_VERSION, "initIvy resolveIvyDependencies main")
+                //antTargetWindows(ANT_VERSION, "initIvy resolveIvyDependencies main")
+                doAnt(ANT_VERSION, "initIvy resolveIvyDependencies main")
             }
         }
         stage('Test') {
             steps {
                 echo "${env.STAGE_NAME}ing.."
                 //antRun(ANT_VERSION)
-                antTargetWindows(ANT_VERSION, "run")
+                //antTargetWindows(ANT_VERSION, "run")
+                doAnt(ANT_VERSION, "run")
             }
         }
         stage('Deploy') {
@@ -30,47 +32,28 @@ pipeline {
     }
 }
 
-void antTargetUnix(String antVersion, String Targets){
-    echo "${antVersion} ${Targets}"
-    withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            sh '"$ANT_HOME/bin/ant" $Targets'
+void antTargetsUnix(String antVersion, String Targets){
+    echo "Ant -v ${antVersion} Targets ${Targets}"
+    withEnv( ["ANT_HOME=${tool antVersion}","TARGETS=${Targets}"] ) {
+            sh '"$ANT_HOME/bin/ant" $TARGETS'
         }
 }
 
-void antTargetWindows(String antVersion, String Targets){
-   echo "${antVersion} ${Targets}"
+void antTargetsWindows(String antVersion, String Targets){
+   echo "Ant -v ${antVersion} Targets ${Targets}"
    withEnv( ["ANT_HOME=${tool antVersion}","TARGETS=${Targets}"] ) {
             bat '"%ANT_HOME%/bin/ant.bat" %TARGETS%'
         }
 }
 
-void antBuild(String antVersion) {
+void doAnt(String antVersion, String Targets) {
      if (isUnix()) {
-        echo "Building UNIX"
-        withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            sh '"$ANT_HOME/bin/ant" initIvy resolveIvyDependencies main'
-        }
+        echo "UNIX"
+        antTargetsUnix(antVersion, Targets)
     }
     else {
-        echo "Building Windows"
-        withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            bat '"%ANT_HOME%/bin/ant.bat" initIvy resolveIvyDependencies main'
-        }
-    }
-}
-
-void antRun(String antVersion) {
-     if (isUnix()) {
-        echo "Building UNIX"
-        withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            sh '"$ANT_HOME/bin/ant" run'
-        }
-    }
-    else {
-        echo "Building Windows"
-        withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            bat '"%ANT_HOME%/bin/ant.bat" run'
-        }
+        echo "WINDOWS"
+        antTargetsWindows(antVersion, Targets)
     }
 }
 
