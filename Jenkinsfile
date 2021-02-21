@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-                VAR_A = credentials('jenkins-bitbucket-common-creds')
+                VAR_A = credentials('SECRET_ID')
             }
     stages {
         stage('Build') {
