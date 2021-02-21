@@ -33,13 +33,13 @@ void antBuild(String antVersion) {
      if (isUnix()) {
         echo "Building UNIX"
         withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            sh '$ANT_HOME/bin/ant target1 target2'
+            sh '"$ANT_HOME/bin/ant" main'
         }
     }
     else {
         echo "Building Windows"
         withEnv( ["ANT_HOME=${tool antVersion}"] ) {
-            bat '%ANT_HOME%/bin/ant.bat target1 target2'
+            bat '"%ANT_HOME%/bin/ant.bat" main'
         }
     }
 }
