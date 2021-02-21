@@ -1,0 +1,6 @@
+<ivy-module version="2.0">
+    <info organisation="org.apache" module="dateUtilsProject" />
+    <dependencies>
+        <dependency org="org.slf4j" name="slf4j-api" rev="1.7.6" />
+    </dependencies>
+</ivy-module>
