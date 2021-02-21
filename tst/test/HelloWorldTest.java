@@ -10,25 +10,25 @@ import static org.junit.Assert.assertEquals;
 
 public class HelloWorldTest{
   	private static final Logger log = LoggerFactory.getLogger(HelloWorldTest.class);
-  String message = "Robert";	
+  	String message = "Robert";	
    
-   @Test
-   public void testA() {	 
-     String where = "test";
-		  log.debug("Logged:{}", where);
-      System.out.println(where);
-      assertEquals(message, "Robert");     
-   }
+   	@Test
+   	public void testA() {	 
+     		String where = "test";
+		log.debug("Logged:{}", where);
+      		System.out.println(where);
+     		assertEquals(message, "Robert");     
+   	}
   
-   @Test
-   public void testB() {	 
-      assertEquals(true, true);     
-   }
+  	@Test
+   	public void testB() {	 
+      		assertEquals(true, true);     
+   	}
   
-   @Ignore
-   @Test
-   public void testIgnore() {
-      assertEquals("this", "that");
-   }
+   	@Ignore
+   	@Test
+   	public void testIgnore() {
+      		assertEquals("this", "that");
+   	}
   
 }
