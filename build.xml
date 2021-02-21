@@ -92,7 +92,7 @@
     <target name="runTests">  
         <junit printsummary="yes" fork="yes" haltonfailure="yes">  
             <formatter type="plain"/>  
-	    <classpath refid="test.path" />
+	    <classpath refid="classpath" />
             <classpath location="${build.dir}" />           
             <classpath location="lib/junit-4.13.2.jar" />
 		
