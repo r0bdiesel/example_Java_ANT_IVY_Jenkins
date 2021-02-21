@@ -89,10 +89,12 @@
     <target name="main" depends="clean, compile, jar" />
 	
 	
-<junit printsummary="yes" fork="yes" haltonfailure="yes">
-    <formater type="plain"/>
-    <test name="my.test.TestCase"/>
-</junit>
+    <target name="runTests">  
+        <junit printsummary="yes" fork="yes" haltonfailure="yes">  
+            <formatter type="plain"/>  
+            <test name="tst.test.HelloWorldTest"/>  
+        </junit>  
+    </target>  
 	
 
 </project>
