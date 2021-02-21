@@ -87,5 +87,12 @@
 
     <!-- Default, run this -->
     <target name="main" depends="clean, compile, jar" />
+	
+	
+<junit printsummary="yes" fork="yes" haltonfailure="yes">
+    <formater type="plain"/>
+    <test name="my.test.TestCase"/>
+</junit>
+	
 
 </project>
