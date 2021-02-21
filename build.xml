@@ -96,7 +96,7 @@
             <classpath location="${build.dir}" />           
             <classpath location="lib/junit-4.13.2.jar" />
 		
-            <test name="tst.test.HelloWorldTest"/>  
+            <test name="test.HelloWorldTest"/>  
         </junit>  
     </target>  
 	
