@@ -92,6 +92,9 @@
     <target name="runTests">  
         <junit printsummary="yes" fork="yes" haltonfailure="yes">  
             <formatter type="plain"/>  
+	    <classpath path="${lib.dir}">
+            	<path refid="classPath" />
+            </classpath>
             <test name="tst.test.HelloWorldTest"/>  
         </junit>  
     </target>  
