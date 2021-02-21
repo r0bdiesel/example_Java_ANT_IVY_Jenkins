@@ -12,12 +12,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo "${env.STAGE_NAME}.."
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo "${env.STAGE_NAME}.."
             }
         }
     }
