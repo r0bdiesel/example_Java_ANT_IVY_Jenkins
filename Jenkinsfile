@@ -7,6 +7,11 @@ pipeline {
                 VAR_A = "variable_a"
             }
     stages {
+        stage('Log Ant, Git, and Java version info') {
+            steps {
+                antEchoVersions()
+            }
+        }
         stage('Build') {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
@@ -42,6 +47,19 @@ void antTargetsWindows(String antVersion, String Targets){
    withEnv( ["ANT_HOME=${tool antVersion}","TARGETS=${Targets}"] ) {
             bat '"%ANT_HOME%/bin/ant.bat" %TARGETS%'
         }
+}
+
+void antEchoVersions() {
+    echo "antEchoVersions"
+    if (isUnix()) {
+        echo "UNIX"
+        sh 'ant -version'
+	    sh 'java -version'
+	    sh 'git --version'
+    }
+    else {
+        echo "WINDOWS"
+    }
 }
 
 void doAnt(String antVersion, String Targets) {
