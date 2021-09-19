@@ -99,7 +99,7 @@
         <pathelement location="${dist.dir}"/>
         <pathelement path="${dist.lib.dir}"/>
         </classpath>
-	<classpath refid="classpath.name" />
+	<classpath refid="${classpath.name}" />
 	</java>
     </target>
 	
