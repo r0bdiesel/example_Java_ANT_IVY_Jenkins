@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Log Ant, Git, and Java version info') {
             steps {
+		echo "Starting Pipeline Steps"
                 antEchoVersions()
             }
         }
@@ -35,6 +36,13 @@ pipeline {
     }
 }
 
+void antTargetsUnix2(String antVersion, String Targets){
+    echo "Ant -v Targets ${Targets}"
+    withEnv( ["TARGETS=${Targets}"] ) {
+            sh '"ant" $TARGETS'
+        }
+}
+
 void antTargetsUnix(String antVersion, String Targets){
     echo "Ant -v ${antVersion} Targets ${Targets}"
     withEnv( ["ANT_HOME=${tool antVersion}","TARGETS=${Targets}"] ) {
@@ -54,8 +62,8 @@ void antEchoVersions() {
     if (isUnix()) {
         echo "UNIX"
         sh 'ant -version'
-	    sh 'java -version'
-	    sh 'git --version'
+	sh 'java -version'
+	sh 'git --version'
     }
     else {
         echo "WINDOWS"
@@ -65,7 +73,7 @@ void antEchoVersions() {
 void doAnt(String antVersion, String Targets) {
      if (isUnix()) {
         echo "UNIX"
-        antTargetsUnix(antVersion, Targets)
+        antTargetsUnix2(antVersion, Targets)
     }
     else {
         echo "WINDOWS"
