@@ -1,5 +1,6 @@
 //variable
 def ANT_VERSION = 'Ant1.10.9'
+def IN_DOCKER_ENV = fileExists('/.dockerenv')
 
 pipeline {
     agent any
@@ -65,7 +66,7 @@ void antEchoVersions() {
         sh 'ant -version'
 	sh 'java -version'
 	sh 'git --version'
-	echo "inDockerEnv:${inDockerEnv}"
+	echo "inDockerEnv:${IN_DOCKER_ENV}"
     }
     else {
         echo "WINDOWS"
