@@ -1,11 +1,11 @@
 //variable
 def ANT_VERSION = 'Ant1.10.9'
-def IN_DOCKER_ENV = fileExists('/.dockerenv')
 
 pipeline {
     agent any
     environment {
-                VAR_A = "variable_a"
+                VAR_A = "variable_a",
+		IN_DOCKER_ENV = fileExists('/.dockerenv')
             }
     stages {
         stage('Log Ant, Git, and Java version info') {
