@@ -21,6 +21,7 @@
 
     <!-- install ivy -->
     <target name="initIvy" description="Install ivy">
+	<echo message="running initIvy using user.home:${user.home}"/>
         <mkdir dir="${user.home}/.ant/lib" />
         <get dest="${user.home}/.ant/lib/ivy.jar" src="https://repo1.maven.org/maven2/org/apache/ivy/ivy/2.5.0-rc1/ivy-2.5.0-rc1.jar" />
     </target>
