@@ -6,6 +6,7 @@ pipeline {
 		IN_DOCKER_ENV = fileExists('/.dockerenv')
 	        registry = "r0bdiesel/example_java_ant_ivy_jenkins"
       		restryCredential = 'dockerhub'
+	        dockerImage = ''
             }
     stages {
         stage('Log Ant, Git, and Java version info') {
@@ -33,14 +34,23 @@ pipeline {
 		doAnt(ANT_VERSION, "run")
             }
         }
-	stage('Docker') {
+	stage('Docker Build') {
             steps {
                 echo "${env.STAGE_NAME} Stage"
 		script {
-          		docker.build registry + ":$BUILD_NUMBER"
+          		dockerImage = docker.build registry + ":$BUILD_NUMBER"
         	}
             }
         }
+	stage('Deploy Image') {
+      	    steps{
+               script {
+                     docker.withRegistry( '', registryCredential ) {
+                     dockerImage.push()
+                }
+             }
+         }
+    }
     }
 }
 
