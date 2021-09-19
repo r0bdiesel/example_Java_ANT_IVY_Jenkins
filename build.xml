@@ -102,7 +102,7 @@
 	    <formatter type="plain" usefile="false" /> <!-- to screen -->
 		
                   
-            <test name="test.HelloWorldTest"/>  
+            <test name="com.bob.HelloWorldTest"/>  
         </junit>  
     </target>  
 	
