@@ -4,6 +4,8 @@ pipeline {
                 VAR_A = "variable_a"
 	        ANT_VERSION = 'Ant1.10.9'
 		IN_DOCKER_ENV = fileExists('/.dockerenv')
+	        registry = "docker_hub_account/repository_name"
+      		restryCredential = 'dockerhub'
             }
     stages {
         stage('Log Ant, Git, and Java version info') {
@@ -29,6 +31,14 @@ pipeline {
             steps {
                 echo "${env.STAGE_NAME}ing.."
 		doAnt(ANT_VERSION, "run")
+            }
+        }
+	stage('Docker') {
+            steps {
+                echo "${env.STAGE_NAME} Stage"
+		script {
+          		docker.build registry + ":$BUILD_NUMBER"
+        	}
             }
         }
     }
