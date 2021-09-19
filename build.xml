@@ -97,7 +97,7 @@
   	<arg value="-h"/>
 	<classpath>
         <pathelement location="${dist.dir}/HelloWorld.jar"/>
-        <pathelement path="${classpath.name}"/>
+        <pathelement path="${dist.lib.dir}"/>
         </classpath>
 	<classpath refid="classpath" />
 	</java>
