@@ -11,4 +11,8 @@ public class HelloWorld {
 		log.debug("Logged:{}", where);
         	System.out.println(where);
     	}
+	
+	public static String returnHello() {
+		return "Hello"
+	}
 }
