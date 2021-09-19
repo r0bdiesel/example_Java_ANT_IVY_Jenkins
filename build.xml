@@ -96,7 +96,11 @@
         <junit printsummary="yes" fork="yes" haltonfailure="yes">  
             <formatter type="plain"/>  
 	    <classpath refid="classpath" />
+	    <classpath location="${build.dir}" />
+            <classpath location="lib/junit-4.13.2.jar" />
+		
 	    <formatter type="plain" usefile="false" /> <!-- to screen -->
+		
                   
             <test name="test.HelloWorldTest"/>  
         </junit>  
