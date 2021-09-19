@@ -35,22 +35,22 @@ pipeline {
     }
 }
 
-void antTargetsUnix2(String antVersion, String Targets){
-    echo "Ant -v Targets ${Targets}"
+void antTargetsUnixDocker(String antVersion, String Targets){
+    echo "executing ant on Targets:${Targets}"
     withEnv( ["TARGETS=${Targets}"] ) {
             sh '"ant" $TARGETS'
         }
 }
 
 void antTargetsUnix(String antVersion, String Targets){
-    echo "Ant -v ${antVersion} Targets ${Targets}"
+    echo "executing ant version:${antVersion} on Targets ${Targets}"
     withEnv( ["ANT_HOME=${tool antVersion}","TARGETS=${Targets}"] ) {
             sh '"$ANT_HOME/bin/ant" $TARGETS'
         }
 }
 
 void antTargetsWindows(String antVersion, String Targets){
-   echo "Ant -v ${antVersion} Targets ${Targets}"
+   echo "executing ant version:${antVersion} on Targets ${Targets}"
    withEnv( ["ANT_HOME=${tool antVersion}","TARGETS=${Targets}"] ) {
             bat '"%ANT_HOME%/bin/ant.bat" %TARGETS%'
         }
@@ -72,9 +72,12 @@ void antEchoVersions() {
 void doAnt(String antVersion, String Targets) {
      if (isUnix()) {
         echo "UNIX"
-        antTargetsUnix2(antVersion, Targets)
-    }
-    else {
+	if(IN_DOCKER_ENV) {
+            antTargetsUnixDocker(antVersion, Targets)
+	} else {
+	    antTargetsUnix(String antVersion, String Targets)
+	}
+     } else {
         echo "WINDOWS"
         antTargetsWindows(antVersion, Targets)
     }
