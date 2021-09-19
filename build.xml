@@ -91,6 +91,8 @@
       		failonerror="true"
       		maxmemory="128m">
   	<arg value="-h"/>
+	 <classpath refid="classpath" />
+	 <classpath location="${dist.dir}" />
 	</java>
     </target>
 	
