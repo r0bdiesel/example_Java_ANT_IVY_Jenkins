@@ -97,7 +97,6 @@
             <formatter type="plain"/>  
 	    <classpath refid="classpath" />
 	    <classpath location="${build.dir}" />
-            <classpath location="lib/junit-4.13.2.jar" />
 		
 	    <formatter type="plain" usefile="false" /> <!-- to screen -->
 
