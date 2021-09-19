@@ -86,7 +86,16 @@
 	
     <target name="run">
         <java jar="${dist.dir}/HelloWorld.jar" fork="true"/>
+	<java dir="${dist.dir}"
+     		jar="${dist.dir}/HelloWorld.jar"
+      		fork="true"
+      		failonerror="true"
+      		maxmemory="128m">
+  	<arg value="-h"/>
+	</java>
     </target>
+	
+
 
     <!-- Default, run this -->
     <target name="main" depends="clean, compile, jar" />
