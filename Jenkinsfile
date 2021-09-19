@@ -64,6 +64,7 @@ void antEchoVersions() {
         sh 'ant -version'
 	sh 'java -version'
 	sh 'git --version'
+	sh 'find / -name .dockerenv'
     }
     else {
         echo "WINDOWS"
