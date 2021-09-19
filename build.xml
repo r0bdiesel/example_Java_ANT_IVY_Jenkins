@@ -73,7 +73,6 @@
 
         <echo message="classpath.name: ${classpath.name}" />
 	<echo message="${dist.lib.dir}, ${lib.dir}, ${build.dir}, ${dist.dir}" />
-	<echo message="classpath : ${classpath} " />
 	    
         <mkdir dir="${dist.dir}" />
         <mkdir dir="${dist.lib.dir}" />
