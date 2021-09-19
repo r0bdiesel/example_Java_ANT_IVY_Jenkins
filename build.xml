@@ -96,8 +96,8 @@
       		maxmemory="128m">
   	<arg value="-h"/>
 	<classpath>
-        <pathelement location="${dist.dir}"/>
-        <pathelement path="${dist.lib.dir}"/>
+        <pathelement location="${lib.dir}"/>
+        <pathelement path="${lib.dir}"/>
         </classpath>
 	<classpath refid="${classpath.name}" />
 	</java>
