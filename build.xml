@@ -96,6 +96,7 @@
         <junit printsummary="yes" fork="yes" haltonfailure="yes">  
             <formatter type="plain"/>  
 	    <classpath refid="classpath" />
+	    <formatter type="plain" usefile="false" /> <!-- to screen -->
                   
             <test name="test.HelloWorldTest"/>  
         </junit>  
