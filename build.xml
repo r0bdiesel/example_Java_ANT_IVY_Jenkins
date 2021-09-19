@@ -96,7 +96,7 @@
       		maxmemory="128m">
   	<arg value="-h"/>
 	<classpath>
-        <pathelement location="${dist.dir}/HelloWorld.jar"/>
+        <pathelement location="${dist.dir}"/>
         <pathelement path="${dist.lib.dir}"/>
         </classpath>
 	<classpath refid="classpath" />
