@@ -4,7 +4,7 @@ pipeline {
                 VAR_A = "variable_a"
 	        ANT_VERSION = 'Ant1.10.9'
 		IN_DOCKER_ENV = fileExists('/.dockerenv')
-	        registry = "docker_hub_account/repository_name"
+	        registry = "r0bdiesel/example_java_ant_ivy_jenkins"
       		restryCredential = 'dockerhub'
             }
     stages {
