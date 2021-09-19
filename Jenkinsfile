@@ -75,7 +75,7 @@ void doAnt(String antVersion, String Targets) {
 	if(IN_DOCKER_ENV) {
             antTargetsUnixDocker(antVersion, Targets)
 	} else {
-	    antTargetsUnix(String antVersion, String Targets)
+	    antTargetsUnix(antVersion, Targets)
 	}
      } else {
         echo "WINDOWS"
