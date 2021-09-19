@@ -89,7 +89,7 @@
 	<java dir="${dist.dir}"
      		jar="${dist.dir}/HelloWorld.jar"
       		fork="true"
-      		failonerror="false"
+      		failonerror="true"
       		maxmemory="128m">
   	<arg value="-h"/>
 	<classpath>
