@@ -13,6 +13,6 @@ public class HelloWorld {
     	}
 	
 	public static String returnHello() {
-		return "Hello"
+		return "Hello";
 	}
 }
