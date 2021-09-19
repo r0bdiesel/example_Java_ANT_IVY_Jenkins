@@ -88,18 +88,13 @@
         </jar>
     </target>
 	
-    <target name="run" >
+    <target name="run"  depends="jar">
 	<java dir="${dist.dir}"
      		jar="${dist.dir}/HelloWorld.jar"
       		fork="true"
       		failonerror="true"
       		maxmemory="128m">
   	<arg value="-h"/>
-	<classpath>
-        <pathelement location="${lib.dir}"/>
-        <pathelement path="${lib.dir}"/>
-        </classpath>
-	<classpath refid="${classpath.name}" />
 	</java>
     </target>
 	
