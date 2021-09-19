@@ -1,6 +1,6 @@
 //variable
 def ANT_VERSION = 'Ant1.10.9'
-def inDockerEnv = fileExists '/.dockerenv'
+def inDockerEnv = fileExists('/.dockerenv') 
 
 pipeline {
     agent any
