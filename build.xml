@@ -97,8 +97,7 @@
             <formatter type="plain"/>  
 	    <classpath refid="classpath" />
             <classpath location="${build.dir}" />           
- 	    <classpath location="lib/slf4j-api-1.7.6.jar" />
-            <classpath location="lib/junit-4.13.2.jar" />
+ 	    
 		
             <test name="test.HelloWorldTest"/>  
         </junit>  
