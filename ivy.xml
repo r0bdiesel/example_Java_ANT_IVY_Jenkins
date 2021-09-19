@@ -10,6 +10,7 @@
     <dependencies>
         <dependency org="org.slf4j" name="slf4j-api" rev="1.7.6" />
         <dependency org="org.slf4j" name="slf4j-log4j12" rev="1.7.6" />
+        <dependency org="org.slf4j" name="slf4j-simple" rev="1.7.6" />
         
         <!-- Test dependencies -->
         <dependency org="junit" name="junit" rev="4.12" conf="binaries->default" />
