@@ -1,6 +1,5 @@
 //variable
 def ANT_VERSION = 'Ant1.10.9'
-def inDockerEnv = fileExists('/.dockerenv') 
 
 pipeline {
     agent any
@@ -60,6 +59,7 @@ void antTargetsWindows(String antVersion, String Targets){
 
 void antEchoVersions() {
     echo "antEchoVersions"
+    def inDockerEnv = fileExists('/.dockerenv') 
     if (isUnix()) {
         echo "UNIX"
         sh 'ant -version'
