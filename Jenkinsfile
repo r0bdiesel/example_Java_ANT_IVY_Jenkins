@@ -22,14 +22,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo "${env.STAGE_NAME}ing.."
-                doAnt(ANT_VERSION, "run")
-                
                 doAnt(ANT_VERSION, "runTests")
             }
         }
         stage('Deploy') {
             steps {
                 echo "${env.STAGE_NAME}ing.."
+		doAnt(ANT_VERSION, "run")
             }
         }
     }
