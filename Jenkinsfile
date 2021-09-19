@@ -1,5 +1,4 @@
 pipeline {
-    agent any
     environment {
                 VAR_A = "variable_a"
 	        ANT_VERSION = 'Ant1.10.9'
@@ -8,6 +7,7 @@ pipeline {
       		restryCredential = 'dockerhub'
 	        dockerImage = ''
             }
+    agent any
     stages {
         stage('Log Ant, Git, and Java version info') {
             steps {
