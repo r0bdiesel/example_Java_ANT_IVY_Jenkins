@@ -4,7 +4,7 @@ def ANT_VERSION = 'Ant1.10.9'
 pipeline {
     agent any
     environment {
-                VAR_A = "variable_a",
+                VAR_A = "variable_a"
 		IN_DOCKER_ENV = fileExists('/.dockerenv')
             }
     stages {
