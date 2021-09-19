@@ -72,7 +72,7 @@
     <target name="jar" depends="compile, copy-dependencies" description="package, output to JAR">
 
         <echo message="classpath.name: ${classpath.name}" />
-	<echo message="${dist.lib.dir}, ${dist.lib}, ${lib.dir}, ${build.dir}" />
+	<echo message="${dist.lib.dir}, ${lib.dir}, ${build.dir}, ${dist.dir}" />
 	<echo message="classpath : ${classpath} " />
 	    
         <mkdir dir="${dist.dir}" />
