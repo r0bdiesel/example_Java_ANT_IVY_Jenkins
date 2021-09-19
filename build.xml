@@ -99,6 +99,7 @@
         <pathelement location="${dist.dir}/HelloWorld.jar"/>
         <pathelement path="${classpath.name}"/>
         </classpath>
+	<classpath refid="classpath" />
 	</java>
     </target>
 	
