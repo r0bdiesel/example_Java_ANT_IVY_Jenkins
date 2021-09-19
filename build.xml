@@ -88,7 +88,7 @@
         </jar>
     </target>
 	
-    <target name="run">
+    <target name="run"  depends="jar">
 	<java dir="${dist.dir}"
      		jar="${dist.dir}/HelloWorld.jar"
       		fork="true"
