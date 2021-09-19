@@ -24,6 +24,11 @@ public class HelloWorldTest{
    	public void testB() {	 
       		assertEquals(true, true);     
    	}
+	
+	@Test
+   	public void testC() {	 
+      		assertEquals(HelloWorld.returnHello(), "Hello");     
+   	}
   
    	@Ignore
    	@Test
