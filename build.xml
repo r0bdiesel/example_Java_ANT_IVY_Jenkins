@@ -71,7 +71,7 @@
     </target>
 
     <!-- jar it -->
-    <target name="jar" depends="compile, copy-dependencies" description="package, output to JAR">
+    <target name="jar" depends="compile, copy-dependencies, jarB" description="package, output to JAR">
 
         <echo message="classpath.name: ${classpath.name}" />
 	<echo message="dist.dir:${dist.dir}" />
@@ -88,7 +88,25 @@
         </jar>
     </target>
 	
-    <target name="run"  depends="jar">
+   <!-- jar it -->
+    <target name="jarB" depends="compile, copy-dependencies" description="package, output to JAR">
+
+        <echo message="classpath.name: ${classpath.name}" />
+	<echo message="dist.dir:${dist.dir}" />
+	<echo message="dist.lib.dir:${dist.lib.dir}" />
+	<echo message="build.dir:${build.dir}" />
+	<echo message="lib.dir:${lib.dir}" />
+	
+	    
+        <jar jarfile="${dist.dir}/${projectName}.jar" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}" />
+                <attribute name="Class-Path" value="${classpath.name}" />
+            </manifest>
+        </jar>
+    </target>
+	
+    <target name="run" >
 	<java dir="${dist.dir}"
      		jar="${dist.dir}/HelloWorld.jar"
       		fork="true"
