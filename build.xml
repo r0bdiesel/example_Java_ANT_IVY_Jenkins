@@ -63,10 +63,10 @@
         </copy>
     </target>
 
-    <!-- jar it, and declares the ext libraries in manifest.mf file -->
+    <!-- jar it -->
     <target name="jar" depends="compile, copy-dependencies" description="package, output to JAR">
 
-        <echo message="classpath.name : ${classpath.name} " />
+        <echo message="classpath.name: ${classpath.name}" />
 	<echo message="classpath : ${classpath} " />
 	    
         <mkdir dir="${dist.dir}" />
@@ -89,7 +89,7 @@
 	<java dir="${dist.dir}"
      		jar="${dist.dir}/HelloWorld.jar"
       		fork="true"
-      		failonerror="true"
+      		failonerror="false"
       		maxmemory="128m">
   	<arg value="-h"/>
 	<classpath>
