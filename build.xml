@@ -96,9 +96,7 @@
         <junit printsummary="yes" fork="yes" haltonfailure="yes">  
             <formatter type="plain"/>  
 	    <classpath refid="classpath" />
-            <classpath location="${build.dir}" />           
- 	    
-		
+                  
             <test name="test.HelloWorldTest"/>  
         </junit>  
     </target>  
