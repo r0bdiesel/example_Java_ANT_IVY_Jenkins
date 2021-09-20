@@ -19,3 +19,6 @@ RUN useradd -rm -d /home/test -s /bin/bash -g root -G sudo -u 1001 test
 USER test
 WORKDIR /home/test
 ```
+
+
+setup credentials to be used for Docker https://www.jenkins.io/doc/book/using/using-credentials/
