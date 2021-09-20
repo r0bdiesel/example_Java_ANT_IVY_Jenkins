@@ -44,6 +44,7 @@ pipeline {
         }
 	stage('Deploy Image') {
       	    steps{
+	       echo "$env.restryCredential"
                script {
                      docker.withRegistry( '', registryCredential ) {
                      dockerImage.push()
