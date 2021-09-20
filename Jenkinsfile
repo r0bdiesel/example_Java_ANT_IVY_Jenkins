@@ -4,7 +4,7 @@ pipeline {
 	        ANT_VERSION = 'Ant1.10.9'
 		IN_DOCKER_ENV = fileExists('/.dockerenv')
 	        registry = "r0bdiesel/example_java_ant_ivy_jenkins"
-      		restryCredential = 'dockerhub'
+      		restryCredential = credentials('dockerhub')
 	        dockerImage = ''
             }
     agent any
