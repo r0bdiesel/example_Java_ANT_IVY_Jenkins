@@ -48,7 +48,7 @@ pipeline {
 	       echo "${env.restryCredential}"
 	       echo "${restryCredential}"
                script {
-		       docker.withRegistry( '${registry}', ${restryCredential} ) {
+		       docker.withRegistry( "${registry}", "${restryCredential}" ) {
                      dockerImage.push()
                      }
                 }
