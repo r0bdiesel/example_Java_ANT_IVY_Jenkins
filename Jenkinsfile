@@ -45,9 +45,8 @@ pipeline {
 	stage('Deploy Image') {
       	    steps{
 	       echo "${REGISTRY}"
-	       echo "${REGISTRY_CREDENTIAL}"
                script {
-		       docker.withRegistry( '', REGISTRY_CREDENTIAL) {
+		     docker.withRegistry( '', REGISTRY_CREDENTIAL) {
                      dockerImage.push()
                      }
                 }
