@@ -9,7 +9,7 @@ pipeline {
             }
     agent any
     options {
-    	buildDiscarder(logRotator(numToKeepStr: '5'))
+    	buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
     }
     stages {
         stage('Log Ant, Git, and Java version info') {
