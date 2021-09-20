@@ -49,13 +49,13 @@ pipeline {
 		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
-	stage('Deploy Image') {
+	stage('Push Image to DockerHub') {
       	    steps{
 	       echo "${REGISTRY}"
 	       sh 'docker push r0bdiesel/example_java_ant_ivy_jenkins:latest'
              }
          }
-	 stage('Remove Unused docker image') {
+	 stage('DockerHub Logout') {
   	     steps{
 		sh 'docker logout'
   	     }
