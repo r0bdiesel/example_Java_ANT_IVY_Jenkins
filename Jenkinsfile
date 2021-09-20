@@ -44,10 +44,11 @@ pipeline {
         }
 	stage('Deploy Image') {
       	    steps{
+	       echo "${registry}"
 	       echo "${env.restryCredential}"
 	       echo "${restryCredential}"
                script {
-                     docker.withRegistry( '', registryCredential ) {
+		       docker.withRegistry( '${registry}', ${restryCredential} ) {
                      dockerImage.push()
                      }
                 }
