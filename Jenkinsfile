@@ -47,7 +47,7 @@ pipeline {
 	       echo "${REGISTRY}"
 	       echo "${REGISTRY_CREDENTIAL}"
                script {
-		       docker.withRegistry( REGISTRY, REGISTRY_CREDENTIAL) {
+		       docker.withRegistry( '', REGISTRY_CREDENTIAL) {
                      dockerImage.push()
                      }
                 }
