@@ -58,6 +58,7 @@ pipeline {
 	 stage('DockerHub Logout') {
   	     steps{
 		sh 'docker logout'
+		sh 'docker image prune -a'
   	     }
 	}
     }
