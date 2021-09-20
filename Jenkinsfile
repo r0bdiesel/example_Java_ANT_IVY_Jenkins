@@ -4,7 +4,7 @@ pipeline {
 	        ANT_VERSION = 'Ant1.10.9'
 		IN_DOCKER_ENV = fileExists('/.dockerenv')
 	        REGISTRY = "r0bdiesel/example_java_ant_ivy_jenkins"
-      		REGISTRY_CREDENTIAL = credentials('dockerhub')
+      		DOCKERHUB_CREDENTIALS = credentials('dockerhub')
 	        dockerImage = ''
             }
     agent any
@@ -37,24 +37,25 @@ pipeline {
 	stage('Docker Build') {
             steps {
                 echo "${env.STAGE_NAME} Stage"
-		script {
-          		dockerImage = docker.build REGISTRY + ":$BUILD_NUMBER"
-        	}
+		sh 'docker build -t r0bdiesel/example_java_ant_ivy_jenkins:latest .'
+            }
+        }
+	stage('DockerHub Login') {
+            steps {
+                echo "${env.STAGE_NAME} Stage"
+		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
 	stage('Deploy Image') {
       	    steps{
 	       echo "${REGISTRY}"
-               script {
-		     docker.withRegistry( '', REGISTRY_CREDENTIAL) {
-                     dockerImage.push()
-                     }
-                }
+	       sh 'docker push r0bdiesel/example_java_ant_ivy_jenkins:latest'
              }
          }
 	 stage('Remove Unused docker image') {
   	     steps{
     		sh "docker rmi $registry:$BUILD_NUMBER"
+		sh 'docker logout'
   	     }
 	}
     }
