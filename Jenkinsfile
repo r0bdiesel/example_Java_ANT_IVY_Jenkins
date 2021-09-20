@@ -8,6 +8,9 @@ pipeline {
 	        dockerImage = ''
             }
     agent any
+    options {
+    	buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
     stages {
         stage('Log Ant, Git, and Java version info') {
             steps {
