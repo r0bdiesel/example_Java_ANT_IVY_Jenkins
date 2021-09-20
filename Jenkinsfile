@@ -3,8 +3,8 @@ pipeline {
                 VAR_A = "variable_a"
 	        ANT_VERSION = 'Ant1.10.9'
 		IN_DOCKER_ENV = fileExists('/.dockerenv')
-	        registry = "r0bdiesel/example_java_ant_ivy_jenkins"
-      		restryCredential = credentials('dockerhub')
+	        REGISTRY = "r0bdiesel/example_java_ant_ivy_jenkins"
+      		REGISTRY_CREDENTIAL = credentials('dockerhub')
 	        dockerImage = ''
             }
     agent any
@@ -38,17 +38,16 @@ pipeline {
             steps {
                 echo "${env.STAGE_NAME} Stage"
 		script {
-          		dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          		dockerImage = docker.build REGISTRY + ":$BUILD_NUMBER"
         	}
             }
         }
 	stage('Deploy Image') {
       	    steps{
-	       echo "${registry}"
-	       echo "${env.restryCredential}"
-	       echo "${restryCredential}"
+	       echo "${REGISTRY}"
+	       echo "${REGISTRY_CREDENTIAL}"
                script {
-		       docker.withRegistry( "${registry}", "${restryCredential}" ) {
+		       docker.withRegistry( REGISTRY, REGISTRY_CREDENTIAL) {
                      dockerImage.push()
                      }
                 }
